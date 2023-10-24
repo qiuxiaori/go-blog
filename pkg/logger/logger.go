@@ -1,23 +1,24 @@
 package logger
 
 import (
-	"log"
-	"io"
 	"context"
-	"runtime"
-	"fmt"
-	"time"
 	"encoding/json"
+	"fmt"
+	"io"
+	"log"
+	"runtime"
+	"time"
 )
+
 type Level int8
 
-type Fields map[string]interface {}
+type Fields map[string]interface{}
 
 type Logger struct {
-	newLogger 	*log.Logger
-	ctx 		context.Context
-	fields 		Fields
-	callers 	[]string
+	newLogger *log.Logger
+	ctx       context.Context
+	fields    Fields
+	callers   []string
 }
 
 const (
@@ -41,11 +42,11 @@ func (l Level) String() string {
 	return ""
 }
 
-func NewLogger(w io.Writer, prefix string, flag int) * Logger {
-	return &Logger{ newLogger: log.New(w, prefix, flag)}
+func NewLogger(w io.Writer, prefix string, flag int) *Logger {
+	return &Logger{newLogger: log.New(w, prefix, flag)}
 }
 
-func (l * Logger) clone() *Logger {
+func (l *Logger) clone() *Logger {
 	nl := *l
 	return &nl
 }
@@ -58,26 +59,26 @@ func (l * Logger) clone() *Logger {
 // }
 
 // 设置公共字段
-func (l * Logger) WithFields(f Fields) *Logger {
+func (l *Logger) WithFields(f Fields) *Logger {
 	ll := l.clone()
 	if ll.fields == nil {
 		ll.fields = make(Fields)
 	}
-	for k,v := range f {
+	for k, v := range f {
 		ll.fields[k] = v
 	}
 	return ll
 }
 
 // 设置上下文属性
-func (l* Logger) WithContext(ctx context.Context) *Logger {
+func (l *Logger) WithContext(ctx context.Context) *Logger {
 	ll := l.clone()
 	ll.ctx = ctx
 	return ll
 }
 
 // 设置某一层调用栈信息
-func (l * Logger) WithCaller(skip int) *Logger {
+func (l *Logger) WithCaller(skip int) *Logger {
 	ll := l.clone()
 	pc, file, line, ok := runtime.Caller(skip)
 	if ok {
@@ -96,8 +97,8 @@ func (l *Logger) WithCallersFrames() *Logger {
 	pcs := make([]uintptr, maxCallerDepth)
 	depth := runtime.Callers(minCallerDepth, pcs)
 	frames := runtime.CallersFrames(pcs[:depth])
-	for frame, more := frames.Next();more;frame,more = frames.Next() {
-		callers = append(callers,  fmt.Sprintf("%s: %d %s", frame.File, frame.Line, frame.Function))
+	for frame, more := frames.Next(); more; frame, more = frames.Next() {
+		callers = append(callers, fmt.Sprintf("%s: %d %s", frame.File, frame.Line, frame.Function))
 		if !more {
 			break
 		}
@@ -107,8 +108,8 @@ func (l *Logger) WithCallersFrames() *Logger {
 	return ll
 }
 
-func (l * Logger) JSONFormat(level Level, message string) map[string]interface{} {
-	data := make(Fields, len(l.fields) + 4)
+func (l *Logger) JSONFormat(level Level, message string) map[string]interface{} {
+	data := make(Fields, len(l.fields)+4)
 	data["level"] = level.String()
 	data["time"] = time.Now().Local().UnixNano()
 	data["message"] = message
@@ -124,7 +125,7 @@ func (l * Logger) JSONFormat(level Level, message string) map[string]interface{}
 	return data
 }
 
-func (l *Logger) Output(leve Level, message string) {
+func (l *Logger) Output(level Level, message string) {
 	body, _ := json.Marshal(l.JSONFormat(level, message))
 	content := string(body)
 	switch level {
@@ -133,4 +134,13 @@ func (l *Logger) Output(leve Level, message string) {
 	case LevelInfo:
 		l.newLogger.Print(content)
 	}
+}
+
+func (l *Logger) Info(v ...interface{}) {
+	l.Output(LevelInfo, fmt.Sprint(v...))
+}
+
+func (l *Logger) Infof(format string, v ...interface{}) {
+	print("this is infof")
+	l.Output(LevelInfo, fmt.Sprintf(format, v...))
 }

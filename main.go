@@ -6,8 +6,10 @@ import (
 	"time"
 
 	"github.com/qiuxiaori/go-blog/global"
+	"github.com/qiuxiaori/go-blog/pkg/logger"
 	"github.com/qiuxiaori/go-blog/pkg/setting"
 	"github.com/qiuxiaori/go-blog/src/router"
+	"gopkg.in/natefinch/lumberjack.v2"
 )
 
 func init() {
@@ -15,10 +17,20 @@ func init() {
 	if err != nil {
 		log.Fatalf("init config err %v", err)
 	}
+
+	err = setupLogger()
+	if err != nil {
+		log.Fatalf("init.setupLogger err: %v", err)
+	}
 }
 
+// @title 博客系统
+// @version 1.0
+// @description Go 语言编程之旅：一起用 Go 做项目
+// @termsOfService https://github.com/go-programming-tour-book
 func main() {
 	// gin.SetMode(global.ServerSetting.RunMode)
+	global.Logger.Infof("%s: go-programming-tour-book/%s", "eddycjy", "blog-service")
 
 	r := router.NewRouter()
 	s := &http.Server{
@@ -41,5 +53,18 @@ func setupSetting() error {
 	if err != nil {
 		return err
 	}
+	return nil
+}
+
+func setupLogger() error {
+
+	print("this is setupLogger")
+	global.Logger = logger.NewLogger(&lumberjack.Logger{
+		Filename:  "logs/main.log",
+		MaxSize:   600,
+		MaxAge:    10,
+		LocalTime: true,
+	}, "", log.LstdFlags).WithCaller(2)
+
 	return nil
 }

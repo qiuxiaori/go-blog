@@ -1,0 +1,14 @@
+info:
+  contact: {}
+  description: Go 语言编程之旅：一起用 Go 做项目
+  termsOfService: https://github.com/go-programming-tour-book
+  title: 博客系统
+  version: "1.0"
+paths:
+  /api/v1/articles:
+    post:
+      produces:
+      - application/json
+      responses: {}
+      summary: 创建文章
+swagger: "2.0"

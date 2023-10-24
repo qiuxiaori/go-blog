@@ -1,0 +1,11 @@
+2023/10/24 23:43:35 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1698162215351608500}
+2023/10/24 23:44:04 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1698162244294477300}
+2023/10/25 00:19:20 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1698164360696524500}
+2023/10/25 00:22:47 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1698164567827681900}
+2023/10/25 00:23:02 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1698164582707392200}
+2023/10/25 00:23:31 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1698164611632753800}
+2023/10/25 00:24:04 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1698164644503753200}
+2023/10/25 00:24:29 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1698164669593787800}
+2023/10/25 00:24:45 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1698164685799388700}
+2023/10/25 00:24:54 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1698164694709146700}
+2023/10/25 00:59:33 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1698166773154820400}
