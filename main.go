@@ -1,13 +1,45 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
+	"log"
+	"net/http"
+	"time"
+
+	"github.com/qiuxiaori/go-blog/global"
+	"github.com/qiuxiaori/go-blog/pkg/setting"
+	"github.com/qiuxiaori/go-blog/src/router"
 )
 
-func main () {
-	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{"message": "pong"})
-	})
-	r.Run()
+func init() {
+	err := setupSetting()
+	if err != nil {
+		log.Fatalf("init config err %v", err)
+	}
+}
+
+func main() {
+	// gin.SetMode(global.ServerSetting.RunMode)
+
+	r := router.NewRouter()
+	s := &http.Server{
+		Addr:           ":" + global.ServerSetting.HttpPort,
+		Handler:        r,
+		ReadTimeout:    10 * time.Second,
+		WriteTimeout:   10 * time.Second,
+		MaxHeaderBytes: 1 << 20,
+	}
+	s.ListenAndServe()
+}
+
+func setupSetting() error {
+	setting, err := setting.NewSetting()
+	if err != nil {
+		return err
+	}
+
+	err = setting.ReadSetting("Server", &global.ServerSetting)
+	if err != nil {
+		return err
+	}
+	return nil
 }
