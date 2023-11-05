@@ -7,6 +7,14 @@ info:
 paths:
   /api/v1/articles:
     post:
+      parameters:
+      - description: 文章标题
+        in: body
+        minLength: 1
+        name: title
+        required: true
+        schema:
+          type: string
       produces:
       - application/json
       responses: {}

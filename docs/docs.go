@@ -22,6 +22,18 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "summary": "创建文章",
+                "parameters": [
+                    {
+                        "minLength": 1,
+                        "description": "文章标题",
+                        "name": "title",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {}
             }
         }

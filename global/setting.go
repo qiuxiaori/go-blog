@@ -8,4 +8,5 @@ import (
 var (
 	ServerSetting *setting.ServerSettingS
 	Logger        *logger.Logger
+	JWTSetting    *setting.JWTSettingS
 )

@@ -9,3 +9,13 @@
 2023/10/25 00:24:45 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1698164685799388700}
 2023/10/25 00:24:54 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1698164694709146700}
 2023/10/25 00:59:33 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1698166773154820400}
+2023/11/05 22:45:25 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1699195525758489700}
+2023/11/05 22:59:23 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1699196363585290000}
+2023/11/05 23:24:45 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1699197885341647900}
+2023/11/05 23:28:54 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1699198134960942400}
+2023/11/05 23:29:34 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1699198174765304800}
+2023/11/06 00:05:52 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1699200352456084700}
+2023/11/06 00:45:07 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1699202707240171700}
+2023/11/06 00:47:16 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1699202836608136800}
+2023/11/06 01:10:31 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1699204231077141300}
+2023/11/06 01:11:10 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1699204270913102300}
