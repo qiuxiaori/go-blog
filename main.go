@@ -6,9 +6,9 @@ import (
 	"time"
 
 	"github.com/qiuxiaori/go-blog/global"
+	"github.com/qiuxiaori/go-blog/internal/routers"
 	"github.com/qiuxiaori/go-blog/pkg/logger"
 	"github.com/qiuxiaori/go-blog/pkg/setting"
-	"github.com/qiuxiaori/go-blog/src/router"
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
@@ -32,7 +32,7 @@ func main() {
 	// gin.SetMode(global.ServerSetting.RunMode)
 	global.Logger.Infof("%s: go-programming-tour-book/%s", "eddycjy", "blog-service")
 
-	r := router.NewRouter()
+	r := routers.NewRouter()
 	s := &http.Server{
 		Addr:           ":" + global.ServerSetting.HttpPort,
 		Handler:        r,

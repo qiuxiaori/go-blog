@@ -9,7 +9,10 @@ require (
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1
 )
 
-require github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
+require (
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
+	github.com/juju/ratelimit v1.0.1 // indirect
+)
 
 require (
 	github.com/KyleBanks/depth v1.2.1 // indirect
