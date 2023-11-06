@@ -56,3 +56,6 @@
 2023/11/06 14:47:13 {"callers":["C:/Users/qiuxiaori/Projects/go-blog/main.go: 21 main.init.0"],"level":"info","message":"access log: method: POST, status_code: 200, negin_time: 1699253233, end_time: 1699253233","request":"","response":"","time":1699253233347564200}
 2023/11/06 14:47:17 {"callers":["C:/Users/qiuxiaori/Projects/go-blog/main.go: 21 main.init.0"],"level":"info","message":"access log: method: POST, status_code: 200, negin_time: 1699253237, end_time: 1699253237","request":"","response":"","time":1699253237900580400}
 2023/11/06 14:47:19 {"callers":["C:/Users/qiuxiaori/Projects/go-blog/main.go: 21 main.init.0"],"level":"info","message":"access log: method: POST, status_code: 200, negin_time: 1699253239, end_time: 1699253239","request":"","response":"","time":1699253239007738500}
+2023/11/06 23:14:26 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1699283666367337700}
+2023/11/06 23:15:13 {"callers":["D:/Documents/go-blog/main.go: 21 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1699283713004071400}
+2023/11/06 23:23:28 {"callers":["D:/Documents/go-blog/main.go: 24 main.init.0"],"level":"info","message":"eddycjy: go-programming-tour-book/blog-service","time":1699284208696778500}

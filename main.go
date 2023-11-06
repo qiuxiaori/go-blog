@@ -3,6 +3,9 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
+	"os/exec"
+	"path/filepath"
 	"time"
 
 	"github.com/qiuxiaori/go-blog/global"
@@ -30,6 +33,10 @@ func init() {
 // @termsOfService https://github.com/go-programming-tour-book
 func main() {
 	// gin.SetMode(global.ServerSetting.RunMode)
+	file, _ := exec.LookPath(os.Args[0])
+	path, _ := filepath.Abs(file)
+	println("this is path", path)
+
 	global.Logger.Infof("%s: go-programming-tour-book/%s", "eddycjy", "blog-service")
 
 	r := routers.NewRouter()
@@ -42,6 +49,13 @@ func main() {
 	}
 	s.ListenAndServe()
 }
+
+// func setupFlag() error {
+// 	port :=
+// 		flag.StringVar{&port, "port", "", "启动端口"}
+// 	flag.Parse()
+// 	return nil
+// }
 
 func setupSetting() error {
 	setting, err := setting.NewSetting()
@@ -64,8 +78,6 @@ func setupSetting() error {
 }
 
 func setupLogger() error {
-
-	print("this is setupLogger")
 	global.Logger = logger.NewLogger(&lumberjack.Logger{
 		Filename:  "logs/main.log",
 		MaxSize:   600,
