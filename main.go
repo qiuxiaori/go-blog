@@ -10,6 +10,7 @@ import (
 
 	"github.com/qiuxiaori/go-blog/global"
 	"github.com/qiuxiaori/go-blog/internal/routers"
+	"github.com/qiuxiaori/go-blog/pkg/db"
 	"github.com/qiuxiaori/go-blog/pkg/logger"
 	"github.com/qiuxiaori/go-blog/pkg/setting"
 	"gopkg.in/natefinch/lumberjack.v2"
@@ -24,6 +25,11 @@ func init() {
 	err = setupLogger()
 	if err != nil {
 		log.Fatalf("init.setupLogger err: %v", err)
+	}
+
+	err = setupDB()
+	if err != nil {
+		log.Fatalf("init.setupDB err: %v", err)
 	}
 }
 
@@ -56,6 +62,15 @@ func main() {
 // 	flag.Parse()
 // 	return nil
 // }
+
+func setupDB() error {
+	DB, err := db.NewDBEngine()
+	if err != nil {
+		return err
+	}
+	global.DB = DB
+	return nil
+}
 
 func setupSetting() error {
 	setting, err := setting.NewSetting()

@@ -12,7 +12,6 @@ import (
 	"github.com/qiuxiaori/go-blog/pkg/limiter"
 )
 
-
 var article = v1.NewArticle()
 var methodLimiters = limiter.NewMethodLimiter().AddBuckets(limiter.LimiterBucketRule{
 	Key:          "/api/v1/auth",
@@ -34,6 +33,7 @@ func NewRouter() *gin.Engine {
 	{
 		apiV1.POST("/articles", article.Create)
 		apiV1.POST("/auth", v1.GetAuth)
+		apiV1.POST("/user", v1.GetUser)
 	}
 
 	return r
