@@ -8,6 +8,7 @@ import (
 	// "github.com/swaggo/gin-swagger/swaggerFiles"
 
 	"github.com/qiuxiaori/go-blog/internal/middleware"
+	"github.com/qiuxiaori/go-blog/internal/qrouters"
 	v1 "github.com/qiuxiaori/go-blog/internal/routers/api/v1"
 	"github.com/qiuxiaori/go-blog/pkg/limiter"
 )
@@ -31,10 +32,11 @@ func NewRouter() *gin.Engine {
 	apiV1 := r.Group("/api/v1")
 	apiV1.Use(middleware.JWT())
 	{
-		apiV1.POST("/articles", article.Create)
+		apiV1.POST("/articles", article.Create, middleware.JWT())
 		apiV1.POST("/auth", v1.GetAuth)
 		apiV1.POST("/user", v1.GetUser)
 	}
+	qrouters.Init(r)
 
 	return r
 }

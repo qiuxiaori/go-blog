@@ -12,6 +12,6 @@ func GetAuth(c *gin.Context) {
 }
 
 func GetUser(c *gin.Context) {
-	auth, _ := service.Auth{}.Get("1212", "11212")
+	auth, _ := service.GetAuth("1212", "11212")
 	app.NewResponse(c).ToResponse(auth)
 }

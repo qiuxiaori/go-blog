@@ -5,8 +5,6 @@ import (
 	"github.com/qiuxiaori/go-blog/internal/model"
 )
 
-type Auth struct{}
-
-func (a Auth) Get(appKey, appSecret string) (model.Auth, error) {
-	return dao.Auth{}.Get(appKey, appSecret)
+func GetAuth(appKey, appSecret string) (model.Auth, error) {
+	return dao.GetUser(appKey, appSecret)
 }

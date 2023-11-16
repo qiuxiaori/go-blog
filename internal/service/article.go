@@ -12,7 +12,7 @@ func NewArticle() Article {
 	return Article{}
 }
 
-func (a Article) CreateArticle() Article {
+func CreateArticle() Article {
 	return Article{}
 }
 

@@ -22,7 +22,7 @@ func NewDBEngine() (*gorm.DB, error) {
 		"root",
 		"123456",
 		"127.0.0.1:3306",
-		"blog_service",
+		"BLOG",
 		"utf8",
 		true,
 	))
