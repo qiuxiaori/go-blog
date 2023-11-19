@@ -2,10 +2,13 @@ package qrouters
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/qiuxiaori/go-blog/internal/qrouters/user"
 	"github.com/qiuxiaori/go-blog/pkg/qiurouter"
-	"github.com/qiuxiaori/go-blog/pkg/qiurouter/user"
 )
 
-func Init(gin *gin.Engine) {
-	qiurouter.New(gin).Register(user.Create())
+func Init(r *gin.Engine) {
+	routers := qiurouter.New(r)
+
+	// apiV1 := r.Group("/api/v1")
+	routers.Register(user.Create("POST", "/user"))
 }

@@ -33,10 +33,13 @@ func NewRouter() *gin.Engine {
 	apiV1.Use(middleware.JWT())
 	{
 		apiV1.POST("/articles", article.Create, middleware.JWT())
-		apiV1.POST("/auth", v1.GetAuth)
+		// apiV1.POST("/auth", v1.GetAuth)
 		apiV1.POST("/user", v1.GetUser)
 	}
 	qrouters.Init(r)
+	// r.Use(middleware.Validator())
+
+	// qrouters.Reti
 
 	return r
 }

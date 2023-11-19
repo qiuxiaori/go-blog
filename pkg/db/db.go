@@ -2,6 +2,7 @@ package db
 
 import (
 	"fmt"
+	"log"
 	"time"
 
 	otgorm "github.com/eddycjy/opentracing-gorm"
@@ -27,6 +28,7 @@ func NewDBEngine() (*gorm.DB, error) {
 		true,
 	))
 	if err != nil {
+		log.Fatalf("init.setupDB err: %v", err)
 		return nil, err
 	}
 

@@ -6,5 +6,5 @@ import (
 )
 
 func GetAuth(appKey, appSecret string) (model.Auth, error) {
-	return dao.GetUser(appKey, appSecret)
+	return dao.GetAuth(appKey, appSecret)
 }

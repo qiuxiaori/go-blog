@@ -7,18 +7,19 @@ import (
 	"github.com/qiuxiaori/go-blog/pkg/qiurouter"
 )
 
-func Create() qiurouter.Router {
+func Create(method string, url string) qiurouter.Router {
 	return qiurouter.Router{
-		Method: "POST",
-		Url:    "/create",
+		Method: method,
+		Url:    url,
+		Payload: qiurouter.Payload{
+			Body: service.CreateUserReq{},
+		},
 		Handle: func(c *gin.Context) {
-			auth, _ := service.GetAuth("1212", "11212")
-			app.NewResponse(c).ToResponse(auth)
+			var param service.CreateUserReq
+			println("this is Handle")
+			c.ShouldBindJSON(&param)
+			service.CreateUser(&param)
+			app.NewResponse(c).ToResponse(param)
 		},
 	}
 }
-
-// func GetUser(c *gin.Context) {
-// 	auth, _ := service.GetAuth("1212", "11212")
-// 	app.NewResponse(c).ToResponse(auth)
-// }
