@@ -22,7 +22,7 @@ func NewDBEngine() (*gorm.DB, error) {
 	db, err := gorm.Open("mysql", fmt.Sprintf(s,
 		"root",
 		"123456",
-		"127.0.0.1:3306",
+		"0.0.0.0:49156",
 		"BLOG",
 		"utf8",
 		true,

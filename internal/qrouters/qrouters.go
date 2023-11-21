@@ -11,4 +11,5 @@ func Init(r *gin.Engine) {
 
 	// apiV1 := r.Group("/api/v1")
 	routers.Register(user.Create("POST", "/user"))
+	routers.Register(user.Detail("GET", "/user"))
 }

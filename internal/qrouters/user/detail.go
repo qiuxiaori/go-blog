@@ -9,7 +9,7 @@ import (
 	"github.com/qiuxiaori/go-blog/pkg/qiurouter"
 )
 
-func Create(method string, url string) qiurouter.Router {
+func Detail(method string, url string) qiurouter.Router {
 	return qiurouter.Router{
 		Method: method,
 		Url:    url,
@@ -17,19 +17,15 @@ func Create(method string, url string) qiurouter.Router {
 			Body: service.UserCreateReq{},
 		},
 		Handle: func(c *gin.Context) {
-			var param service.UserCreateReq
-			if err := c.ShouldBindJSON(&param); err != nil {
-				println("this is err %s", &err)
+			var param service.UserDetailReq
+			c.ShouldBindJSON(&param)
+			user, err := service.GetUser(&param)
+			if err != nil {
 				fmt.Println(err)
 				app.NewResponse(c).ToResponse("err")
 				return
 			}
-			println("this is param", param.Name)
-			if err := service.CreateUser(&param); err != nil {
-				fmt.Println(err)
-				app.NewResponse(c).ToResponse("err")
-			}
-			app.NewResponse(c).ToResponse("")
+			app.NewResponse(c).ToResponse(user)
 		},
 	}
 }

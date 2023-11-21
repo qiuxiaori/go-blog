@@ -27,10 +27,10 @@ func init() {
 		log.Fatalf("init.setupLogger err: %v", err)
 	}
 
-	// err = setupDB()
-	// if err != nil {
-	// 	log.Fatalf("init.setupDB err: %v", err)
-	// }
+	err = setupDB()
+	if err != nil {
+		log.Fatalf("init.setupDB err: %v", err)
+	}
 }
 
 // @title 博客系统

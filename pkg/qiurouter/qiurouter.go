@@ -1,10 +1,7 @@
 package qiurouter
 
 import (
-	"reflect"
-
 	"github.com/gin-gonic/gin"
-	"github.com/qiuxiaori/go-blog/pkg/app"
 )
 
 type Payload struct {
@@ -50,14 +47,14 @@ func Validator(inter interface{}) gin.HandlerFunc {
 		// param, exists := c.Get("Payload.Param")
 		// if exists {
 		// println("this is exists", exists, &param, param)
-		valid, _ := app.BindAndValid(c, reflect.ValueOf(inter))
-		println("this is inter1", inter, valid)
-		if !valid {
-			println("this is inter", inter, valid)
-			// c.Abort()
-			// return
-		}
+		// valid, _ := app.BindAndValid(c, reflect.ValueOf(inter))
+		// println("this is inter1", inter, valid)
+		// if !valid {
+		// 	println("this is inter", inter, valid)
+		// 	// c.Abort()
+		// 	// return
 		// }
+		// // }
 
 		c.Next()
 	}
